@@ -17,12 +17,12 @@ if (time <= 15) {
 //------------------------------------------------------------------------------------------------------------------------------
 // - У змінній day дано якесь число від 1 до 31. Потрібно визначити, у яку половину(декаду) місяця потрапляє це число (у першу, другу чи третю).
 document.write('<br>');
-let day = 16;
+let day = 45;
 if (day <= 10) {
     document.write(day + 'число припадає до першої декади');
 } else if (day <= 20) {
     document.write(day + 'число припадає до другої декади');
-} else {
+} else if (day <= 31) {
     document.write(day + 'число припадає до третьої декади');
 }
 
@@ -54,25 +54,25 @@ if (a !== 0) {
 document.write('<br>');
 let day_of_week = +prompt('Please, write the day of the week');
 switch (day_of_week) {
-    case "1":
+    case 1:
         document.write('Monday`s schedule...');
         break;
-    case "2":
+    case 2:
         document.write('Tuesday`s schedule...');
         break;
-    case "3":
+    case 3:
         document.write('Wednesday`s schedule...');
         break;
-    case "4":
+    case 4:
         document.write('Thursday schedule...');
         break;
-    case "5":
+    case 5:
         document.write('Friday`s schedule...');
         break;
-    case "6":
+    case 6:
         document.write('Saturday`s schedule...');
         break;
-    case "7":
+    case 7:
         document.write('Sunday`s schedule...');
         break;
     default:
@@ -83,8 +83,8 @@ switch (day_of_week) {
 //------------------------------------------------------------------------------------------------------------------------------
 // - Потрібно визначити Високосний рік чи ні. Високосні роки діляться націло на 4.
 document.write('<br>');
-let year = 2028;
-(year % 4) ? document.write(year + ' - цей рік не високосний') : document.write(year + ' - цей рік високосний');
+let year = 2027;
+year % 4 ? document.write(`${year} - цей рік не високосний`) : document.write(`${year} - цей рік високосний`);
 
 
 // - Використовуючи конструкцію if..else, напишіть код, який запитуватиме: „Яка «офіційна» назва JavaScript?“
