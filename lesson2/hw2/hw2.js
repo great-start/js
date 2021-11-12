@@ -52,7 +52,7 @@ if (a !== 0) {
 //----------------------------------------------------------------------------------------------------------------------------
 // - Скласти розклад на тиждень за домопоги switch. Користувач вводить порядковий номер дня тижня і на екрані відображається інфа що заплановано на цей день.
 document.write('<br>');
-let day_of_week = prompt('Please, write the day of the week');
+let day_of_week = +prompt('Please, write the day of the week');
 switch (day_of_week) {
     case "1":
         document.write('Monday`s schedule...');
