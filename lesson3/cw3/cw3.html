@@ -5,6 +5,7 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Classwork3</title>
+    <link rel="stylesheet" href="cw3.css">
 </head>
 <body>
 
@@ -90,7 +91,8 @@
     }
     document.write('</ul>');
 
-    /*
+
+    /*---------------------------------------------------------------------------------------------------------------------------
     Використовуючи данні з масиву, за допомоги document.write та циклу
     побудувати структуру по шаблону template2.1 & template2.2. Зробити адекватну стилізацію.
     Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон.
@@ -134,13 +136,35 @@
         },
     ];
 
-    document.write('<div style="display: flex">');
+    // - template 2.1
+    document.write('<div class="template2-1_simpsons">');
     for (let simpson of simpsons) {
-        document.write(`<div>${simpson.name} - ${simpson.surname} - ${simpson.age} - ${simpson.info} <img style="display: block" alt="" src="${simpson.photo}"</div>`);
+        document.write('<div class="simpson">');
+        document.write(`<div><span>${simpson.name} - ${simpson.surname} - ${simpson.age}</span> - ${simpson.info}</div><img style="display: block" alt="simpsons" src="${simpson.photo}">`);
+        document.write('</div>');
     }
     document.write('</div>');
 
-    /*
+    // - template 2.2
+    for (let simpson of simpsons) {
+        document.write('<div class="template2-2_simpsons">');
+        document.write(`<h2>${simpson.name} ${simpson.surname}. age is - ${simpson.age}</h2><p>${simpson.info}</p>`);
+        document.write(`<img src="${simpson.photo}" alt="simpsons">`);
+        document.write('</div>');
+    }
+
+    // - template 2.3
+    document.write('<div class="template2-3_simpsons">');
+    for (let simpson of simpsons) {
+        document.write('<div>');
+        document.write(`<h2>${simpson.name} ${simpson.surname}. age is - ${simpson.age}</h2><p>${simpson.info}</p>`);
+        document.write(`<img src="${simpson.photo}" alt="simpsons">`);
+        document.write('</div>');
+    }
+    document.write('</div>');
+
+
+    /*---------------------------------------------------------------------------------------------------------------------------
     Використовуючи данні з масиву, за допомоги document.write та циклу
     побудувати структуру по шаблону template3.1 Зробити адекватну стилізацію
     Великими літерами прописанні властивості об'єкту які потрібно впровадити в шаблон
@@ -167,6 +191,15 @@
             image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
         },
     ];
+
+    document.write('<div style="display: flex">');
+    for (let product of products) {
+        document.write(`<div class="product-card"><h3 class="product-title">${product.title}. Price - ${product.price}</h3>`);
+        document.write(`<img src=${product.image} alt="products">`);
+        document.write('</div>');
+    }
+    document.write('</div>');
+
 </script>
 
 </body>

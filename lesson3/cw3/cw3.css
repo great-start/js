@@ -1,0 +1,83 @@
+
+body {
+    font-size: 18px;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.template2-1_simpsons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.simpson {
+    display: flex;
+    border: 1px solid darkgrey;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    background: beige;
+}
+
+.simpson > div {
+    max-width: 350px;
+    align-self: center;
+}
+
+.simpson span {
+    font-weight: bold;
+}
+
+.simpson img {
+    width: 200px;
+}
+
+.template2-2_simpsons {
+    border: 1px solid darkblue;
+    border-radius: 10px;
+    background: lightcyan;
+    margin: 10px;
+    padding: 20px;
+}
+
+.template2-3_simpsons {
+    display: flex;
+    margin: 50px 10px;
+    column-gap: 10px;
+}
+
+.template2-3_simpsons > div {
+    border: 1px solid black;
+    background: darkturquoise;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.template2-3_simpsons div img,
+.template2-3_simpsons div h2 {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.template2-3_simpsons div p {
+    text-align: justify;
+}
+
+.product-card {
+    flex: 1 0 0;
+    border: 1px solid rebeccapurple;
+    margin: 10px;
+}
+
+.product-card h3 {
+    text-align: center;
+}
+
+.product-card img {
+    display: block;
+    width: 100%;
+}

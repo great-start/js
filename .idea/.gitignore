@@ -4,5 +4,6 @@
 /modules.xml
 /vcs.xml
 /js.iml
+/vagrant.xml
 # Editor-based HTTP Client requests
 /httpRequests/
