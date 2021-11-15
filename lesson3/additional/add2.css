@@ -1,0 +1,28 @@
+
+div {
+    box-sizing: border-box;
+}
+
+
+.users-box {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    column-gap: 10px;
+    row-gap: 10px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.user-block {
+    border: 1px solid midnightblue;
+    border-radius: 10px;
+    background: lightblue;
+    padding: 20px;
+}
+
+.address-block {
+    background: rgba(147, 204, 210, 0.92);
+    padding: 5px 0 5px 10px;
+    border-radius: 10px;
+}
