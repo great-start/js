@@ -105,24 +105,19 @@ for (let emptyArrElement of empty_arr) {
 }
 
 for (let i = 1; i <= 10; i++) {
-    if (i === 6) {                   // довільний номер кроку
-        document.write(`Номер кроку ${i}`);
-        console.log('номер кроку ' + i);
-    }
+    document.write(`Номер кроку ${i}`);
+    console.log('номер кроку ' + i);
 }
 
 for (let i = 1; i <= 100; i++) {
-    if (i === 59) {                  // довільний номер кроку
-        document.write(`Номер кроку ${i}`);
-        console.log('номер кроку ' + i);
-    }
+    document.write(`Номер кроку ${i}`);
+    console.log('номер кроку ' + i);
 }
 document.write('<br>');
 
 for (let i = 1; i <= 200; i += 2) {
-    if (i === 61) {                   // довільний номер кроку
-        document.write(`Номер кроку ${i}`);
-    }
+    document.write(`Номер кроку ${i}`);
+    console.log(`Номер кроку ${i}`);
 }
 document.write('<br>');
 
