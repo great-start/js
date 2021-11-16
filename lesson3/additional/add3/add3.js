@@ -607,10 +607,29 @@ let post_card = [
 ];
 
 
-// ---------- виконане завдання --------------------
+// ---------- виконане завдання ------------------------------------
 document.write('<div class="wrap">');
 for (let postCardElement of post_card) {
     document.write(`<div class="post-card"><h3>${postCardElement.userId} - ${postCardElement.title}</h3><p>${postCardElement.body}</p>`);
+    document.write('</div>');
+}
+document.write('</div>');
+
+
+// ----------------- другий варіант :) більш довший--------------------------------
+document.write('<div class="wrap">');
+for (let postCardElement of post_card) {
+    for (elements in postCardElement) {
+        if (elements === 'id') {
+            document.write(`<div class="post-card"><h3>${postCardElement[elements]} - `);
+        }
+        if (elements === 'title') {
+            document.write(`${postCardElement[elements]}`);
+        }
+        if (elements === 'body') {
+            document.write(`</h3><p>${postCardElement[elements]}</p>`);
+        }
+    }
     document.write('</div>');
 }
 document.write('</div>');
