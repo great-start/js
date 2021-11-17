@@ -59,11 +59,11 @@ MinOfArrayNumbers(numbers);
 //--------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
 function SumOfArrayElements(array) {
-    let check = 0;
-    for (const arrayElement of array) {
-        check += arrayElement;
+    let sum = array[0];
+    for (let j = 1; j < array.length; j++) {
+        sum += array[j];
     }
-    console.log(check);
+    console.log(sum);
 }
 
 SumOfArrayElements(numbers);
@@ -71,11 +71,11 @@ SumOfArrayElements(numbers);
 
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
 function AverageOfArrayElements(array) {
-    let check = 0;
-    for (const arrayElement of array) {
-        check += arrayElement;
+    let sum = array[0];
+    for (let j = 1; j < array.length; j++) {
+        sum += array[j];
     }
-    console.log(check / array.length);
+    console.log(sum / array.length);
 }
 
 AverageOfArrayElements(numbers);
