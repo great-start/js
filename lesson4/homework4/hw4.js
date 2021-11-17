@@ -86,6 +86,7 @@ createUl2('Better late than never', 10);
 //-------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 let primitives = [1, 6, 9, false, 'hello', true, 'okten', 10, 54];
+
 function creatorList(array) {
     document.write('<ul>');
     for (const arrayElement of array) {
@@ -99,6 +100,19 @@ creatorList(primitives);
 
 //-------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+let arrayObjects = [
+    {id:1 ,name: 'Bart', age: 10,},
+    {id:2 ,name: 'Homer', age: 40,},
+    {id:3 ,name: 'Marge', age: 38,},
+    {id:4 ,name: 'Lisa', age: 9,},
+    {id:5 ,name: 'Maggie', age: 1,},
+];
+    function addObjects(array) {
+        for (const arrayElement of array) {
+            document.write('<div>');
+            document.write(`${arrayElement.id} - ${arrayElement.name} - ${arrayElement.age} years old`);
+            document.write('</div>');
+        }
+    }
 
-
-
+addObjects(arrayObjects);
