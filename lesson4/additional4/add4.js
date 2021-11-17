@@ -113,7 +113,7 @@ console.log(arr);
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
-let last = [1, 0, 6, 0, 3, 0, 3, 0, 4, 5, 0, 2, 3, 0, 4, 0, 4, 0, 6, 0, 0, 0, 0];
+
 
 function cicle(array) {
     for (let i = 0; i < array.length - 1; i++) {
@@ -122,10 +122,10 @@ function cicle(array) {
             array[i + 1] = array[i];
             array[i] = t;
         }
-
     }
 }
 
+//           - вложил функцию в функцию. Можно было вложить всё в одну.
 function ZeroToTheEnd(array) {
     for (let j = 0; j < array.length; j++) {
         if (array[j] === 0) {
@@ -137,9 +137,10 @@ function ZeroToTheEnd(array) {
         }
     }
 }
-
-ZeroToTheEnd(last);
-console.log(last);
+let numbers = [0, 0, 0, 0, 4, 0, 33, 0, 0, 5, 0, 2, 3, 0, 4, 0, 4, 0, 6, 10, 20, 30, 5, 7, 9, 0, 12, 43, 456, 7, 78, 64, 3, 3, 0];
+console.log(numbers);
+ZeroToTheEnd(numbers);
+console.log(numbers);
 
 
 
