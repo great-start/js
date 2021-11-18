@@ -1,3 +1,4 @@
+
 // - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
 function compareMinNumber(a, b, c) {
     if (a <= b && a <= c) {
@@ -26,10 +27,8 @@ function compareMaxNumber(a, b, c) {
 compareMaxNumber(-52, -52, 54);
 
 
-//-------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка повертає найбільше число з масиву
 let numbers = [2000, 100, 5045, 3, 4, 80, 2, 34, 130, 250, 62, 49, 9, 505, 457];
-
 function MaxOfArrayNumbers(array) {
     let check = -1e+1000;
     for (let j = 0; j < array.length; j++) {
@@ -41,6 +40,7 @@ function MaxOfArrayNumbers(array) {
 }
 
 console.log(MaxOfArrayNumbers(numbers));
+
 
 // - створити функцію яка повертає найменьше число з масиву
 function MinOfArrayNumbers(array) {
@@ -56,7 +56,6 @@ function MinOfArrayNumbers(array) {
 console.log(MinOfArrayNumbers(numbers));
 
 
-//--------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
 function SumOfArrayElements(array) {
     let sum = array[0];
@@ -100,11 +99,9 @@ function ReturnMinLogMax() {
 ReturnMinLogMax(-100, 2, 156, 4, -5, 688, 7000, 89, 43, 564, 12, 33);
 
 
-//-------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка заповнює масив рандомними числами
 // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
 let arr_numbers = [];
-
 function AddRandomNumbersToArray(array, array_length) {
     for (let i = 0; i < array_length; i++) {
         array[i] = Math.round(Math.random() * 100);
@@ -115,10 +112,8 @@ function AddRandomNumbersToArray(array, array_length) {
 AddRandomNumbersToArray(arr_numbers, 50);
 
 
-//-------------------------------------------------------------------------------------------------------------------------------
 // - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.
 let arr_numbers2 = [];
-
 function AddRandomNumbersRange(array, array_length, limit) {
     for (let i = 0; i < array_length; i++) {
         array[i] = Math.round(Math.random() * limit);
@@ -129,10 +124,8 @@ function AddRandomNumbersRange(array, array_length, limit) {
 AddRandomNumbersRange(arr_numbers2, 20, 500);
 
 
-//-------------------------------------------------------------------------------------------------------------------------------
 // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
 let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
 function Reverse(array) {
     let array_reverse = [];
     for (let i = array.length - 1; i >= 0; i--) {
