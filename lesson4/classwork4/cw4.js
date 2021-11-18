@@ -31,16 +31,16 @@ compareMaxNumber(-52, -52, 54);
 let numbers = [2000, 100, 5045, 3, 4, 80, 2, 34, 130, 250, 62, 49, 9, 505, 457];
 
 function MaxOfArrayNumbers(array) {
-    let check = 0;
+    let check = -1e+1000;
     for (let j = 0; j < array.length; j++) {
         if (check <= array[j]) {
             check = array[j];
         }
     }
-    console.log(check);
+    return check;
 }
 
-MaxOfArrayNumbers(numbers);
+console.log(MaxOfArrayNumbers(numbers));
 
 // - створити функцію яка повертає найменьше число з масиву
 function MinOfArrayNumbers(array) {
@@ -50,10 +50,10 @@ function MinOfArrayNumbers(array) {
             check = arrayElement;
         }
     }
-    console.log(check);
+    return check;
 }
 
-MinOfArrayNumbers(numbers);
+console.log(MinOfArrayNumbers(numbers));
 
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -63,10 +63,10 @@ function SumOfArrayElements(array) {
     for (let j = 1; j < array.length; j++) {
         sum += array[j];
     }
-    console.log(sum);
+    return sum;
 }
 
-SumOfArrayElements(numbers);
+console.log(SumOfArrayElements(numbers));
 
 
 // - створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.
@@ -75,33 +75,29 @@ function AverageOfArrayElements(array) {
     for (let j = 1; j < array.length; j++) {
         sum += array[j];
     }
-    console.log(sum / array.length);
+    return (sum / array.length);
 }
 
-AverageOfArrayElements(numbers);
+console.log(AverageOfArrayElements(numbers));
 
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
 function ReturnMinLogMax() {
-    // debugger;
-    let min = 1e+1000;
-    for (i = 0; i < arguments.length; i++) {
+    let min = 1e+100;
+    let max = -1e+100;
+    for (let i = 0; i < arguments.length; i++) {
         if (arguments[i] <= min) {
             min = arguments[i];
         }
-    }
-    let max = 0;
-    // debugger;
-    for (i = 0; i < arguments.length; i++) {
         if (max <= arguments[i]) {
-            max = arguments[i];
+            max = arguments[i]
         }
     }
     console.log(max);
     return min;
 }
 
-ReturnMinLogMax(100, 2, 156, 4, -5, 688, 7, 89);
+ReturnMinLogMax(-100, 2, 156, 4, -5, 688, 7000, 89, 43, 564, 12, 33);
 
 
 //-------------------------------------------------------------------------------------------------------------------------------

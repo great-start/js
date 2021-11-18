@@ -26,11 +26,9 @@ let second = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Result(first_array, second_array) {
     let result_array = [];
-    for (let i = 0; i < first_array.length; i++) {
-        for (let j = 0; j < second_array.length; j++) {
-            if (i === j) {
-                result_array[result_array.length] = first_array[i] + second_array[i];
-            }
+    for (let i = 0, j = 0; i < first_array.length, j < second_array.length; i++, j++) {
+        if (i === j) {
+            result_array[result_array.length] = first_array[i] + second_array[i];
         }
     }
     return result_array;
@@ -87,10 +85,10 @@ console.log(ReturnValues(ArrayOfObjects));
 //   foo([9,8,0,4], 0) // ==> [ 8, 9, 0, 4 ]
 //   foo([9,8,0,4], 1) // ==> [ 9 ,0, 8, 4 ]
 //   foo([9,8,0,4], 2) // ==> [ 9, 8, 4, 0 ]
-function ArrayAndI(array, number_i) {
-    if (array.length - 1 !== number_i) {
+function ArrayAndI(array, index) {
+    if (array.length - 1 !== index) {
         for (let j = 0; j < array.length; j++) {
-            if (j === number_i) {
+            if (j === index) {
                 let t = array[j + 1];
                 array[j + 1] = array[j];
                 array[j] = t;
@@ -101,8 +99,8 @@ function ArrayAndI(array, number_i) {
     }
 }
 
-let arr = [9, 8, 0, 4];
-ArrayAndI(arr, 0);
+let arr = [9, 8, 0, 4, 5, 6, 7, 8, 0, 9,];
+ArrayAndI(arr, 5);
 console.log(arr);
 
 
@@ -114,30 +112,23 @@ console.log(arr);
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
 
-
-function cicle(array) {
-    for (let i = 0; i < array.length - 1; i++) {
-        if (array[i] === 0) {
-            let t = array[i + 1];
-            array[i + 1] = array[i];
-            array[i] = t;
-        }
-    }
-}
-
-//           - вложил функцию в функцию. Можно было вложить всё в одну.
 function ZeroToTheEnd(array) {
     for (let j = 0; j < array.length; j++) {
         if (array[j] === 0) {
-            for (let i = 0; i < array.length; i++) {
-                if (array[i + 1] !== 0) {
-                    cicle(array);
+            for (let i = 0; i < array.length - 1; i++) {
+                if (array[i] === 0) {
+                    let t = array[i + 1];
+                    array[i + 1] = array[i];
+                    array[i] = t;
                 }
             }
         }
     }
 }
-let numbers = [0, 0, 0, 0, 4, 0, 33, 0, 0, 5, 0, 2, 3, 0, 4, 0, 4, 0, 6, 10, 20, 30, 5, 7, 9, 0, 12, 43, 456, 7, 78, 64, 3, 3, 0];
+
+let numbers = [0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 55, 0, 0, 0, 4, 0, 0, 0, 2, 0, -4, 0,
+    0, 34, 0, 0, -12, 0, 0, 47, 0, 0, 0, 0, 0, 0, 123, 33, 0, 0, 5, 0, 2, 3, 0,
+    -4, 0, 4, 55, 6, 10, 20, -30, 5, 7, 9, 0, 12, 43, 456, 7, 78, 64, 3, 3, 2];
 console.log(numbers);
 ZeroToTheEnd(numbers);
 console.log(numbers);
