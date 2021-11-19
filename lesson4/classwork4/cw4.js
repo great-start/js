@@ -84,6 +84,7 @@ console.log(AverageOfArrayElements(numbers));
 function ReturnMinLogMax() {
     let min = 1e+100;
     let max = -1e+100;
+    console.log(arguments);
     for (let i = 0; i < arguments.length; i++) {
         if (arguments[i] <= min) {
             min = arguments[i];
