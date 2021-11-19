@@ -106,7 +106,7 @@ console.log(AverageOfElements(numbers));
 
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
-let ReturnMinShowMax = (arr) => {
+let ReturnMinShowMax = arr => {
     let min = 1e+1000;
     let max = -1e+1000;
     for (const arrayElement of arr) {
@@ -178,7 +178,7 @@ let teml_arr4 = [];
 
 
 // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
-let ReverseArray = (array) => {
+let ReverseArray = array => {
     let arr_template = [];
     for (let i = array.length - 1, j = 0; i >= 0; i--, j++) {
         arr_template[j] = array[i];
