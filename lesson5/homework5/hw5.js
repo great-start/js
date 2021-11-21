@@ -8,7 +8,7 @@ console.log(rectangleSquare(10, 10));
 
 
 // - створити функцію яка обчислює та повертає площу кола
-let cicleSquare = (radius) => Math.PI * radius ** 2;
+let cicleSquare = radius => Math.PI * radius ** 2;
 (function (radius) {
     return Math.PI * radius ** 2;
 }(10));
@@ -25,7 +25,7 @@ console.log(cylinderSquare(10, 50));
 
 // - створити функцію яка приймає масив та виводить кожен його елемент
 let array = [1, 4, 8, 'hello', 'Okten', false, true, null, undefined, [], 25, {}];
-let ShowAllElements = (array) => {
+let ShowAllElements = array => {
     for (const arrayElement of array) {
         console.log(arrayElement);
     }
