@@ -39,7 +39,7 @@ ShowAllElements(array);
 
 
 // - створити функцію яка  створює параграф з текстом. Текст задати через аргумент
-let CreateP = (text) => document.write(`<p>${text}</p>`);
+let CreateP = text => document.write(`<p>${text}</p>`);
 (function (text) {
     document.write(`<p>${text}</p>`);
 }('Hello Okten. 100500'));
@@ -47,12 +47,12 @@ CreateP('Hello Okten. 100500');
 
 
 // - створити функцію яка  створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
-let CreateUl = (text) => {
+let CreateUl = text => {
     document.write('<ul>');
     CreateLi(text);
     document.write('</ul>');
 };
-let CreateLi = (text) => document.write(`<li>${text}</li><li>${text}</li><li>${text}</li>`);
+let CreateLi = text => document.write(`<li>${text}</li><li>${text}</li><li>${text}</li>`);
 CreateUl('Hello Okten');
 
 (function (text) {
@@ -68,7 +68,7 @@ let CreateUlLimit = (text, limit) => {
     }
     document.write('</ul>');
 };
-let CreateLiLimit = (text) => document.write(`<li>${text}</li>`);
+let CreateLiLimit = text => document.write(`<li>${text}</li>`);
 CreateUlLimit('Hello Okten', 3);
 
 (function (text, limit) {
@@ -81,16 +81,16 @@ CreateUlLimit('Hello Okten', 3);
 
 
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
-let ArrayPrimitives = (array) => {
-    Ul_Li('open', 'ul');
+let ArrayPrimitives = array => {
+    createTag('open', 'ul');
     for (const item of array) {
-        Ul_Li('open', 'li');
+        createTag('open', 'li');
         document.write(item);
-        Ul_Li('close', 'li');
+        createTag('close', 'li');
     }
-    Ul_Li('close', 'ul');
+    createTag('close', 'ul');
 };
-let Ul_Li = (action, tag) => (action === 'open') ? document.write(`<${tag}>`) : document.write(`</${tag}>`);
+let createTag = (action, tag) => (action === 'open') ? document.write(`<${tag}>`) : document.write(`</${tag}>`);
 ArrayPrimitives(array);
 
 
@@ -114,22 +114,22 @@ let arrayObjects = [
     {id: 5, name: 'Maggie', age: 1,},
 ];
 
-let ShowObjects = (array) => {
+let ShowObjects = array => {
     for (const arrayElement of array) {
-        document.write('<div>');
+        createTag('open','div');
         for (const arrayElementKey in arrayElement) {
             document.write(`${arrayElementKey} - ${arrayElement[arrayElementKey]} `);
         }
-        document.write('</div>');
+        createTag('close','div');
     }
 };
 ShowObjects(arrayObjects);
 
 (function (array) {
     for (const arrayElement of array) {
-        document.write('<div>');
+        createTag('open','div');
         document.write(`${arrayElement.id} -  ${arrayElement.name} - age ${arrayElement.age}`);
-        document.write('</div>');
+        createTag('close','div');
     }
 }(arrayObjects));
 

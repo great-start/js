@@ -2,7 +2,7 @@
 // Всі функції повинні бути описані стрілочним типом, та selfinvoke!!!!
 // - створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)
 let MinOfNumbers = (a, b, c) => {
-    (a <= b && a <= c) ? console.log(a) : (b <= a && b <= c) ? console.log(b) : console.log(c)
+    (a <= b && a <= c) ? console.log(a) : (b <= a && b <= c) ? console.log(b) : console.log(c);
 };
 (function (a, b, c) {
     (a <= b && a <= c) ? console.log(a) : (b <= a && b <= c) ? console.log(b) : console.log(c);
@@ -146,16 +146,14 @@ let AddRandoms = (arr, limit) => {
     }
     return arr;
 };
-let teml_arr = [];
-console.log(AddRandoms(teml_arr,10));
+console.log(AddRandoms(array = [],10));
 
-let teml_arr2 = [];
 (function (arr, limit) {
     for (let i = 0; i < limit; i++) {
-        arr[arr.length] = Math.round(Math.random()*100);
+        arr[arr.length] = Math.round(Math.random() * 100);
     }
     console.log(arr);
-}(teml_arr2,10));
+}(array = [], 10));
 
 
 // - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.
@@ -165,16 +163,15 @@ let AddRandomsLimit = (arr, length, Limit) => {
     }
     return arr;
 };
-let teml_arr3 = [];
-console.log(AddRandomsLimit(teml_arr3,10, 500));
+console.log(AddRandomsLimit(arr = [], 15, 20));
 
-let teml_arr4 = [];
+
 (function (arr,length, Limit) {
     for (let i = 0; i < length; i++) {
         arr[arr.length] = Math.round(Math.random()*Limit);
     }
     console.log(arr);
-}(teml_arr4,10,500));
+}(teml_arr4 = [],10,500));
 
 
 // - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
