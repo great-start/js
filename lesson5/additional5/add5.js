@@ -8,6 +8,7 @@ let NaturalNumbers = limit_n => {
 };
 NaturalNumbers(55);
 
+
 (function (limit_n) {
     for (let i = 1; i <= limit_n; i++) {
         console.log(i);
@@ -32,6 +33,7 @@ let between_A_and_B = (a, b) => {
 };
 between_A_and_B(1, 10);
 
+
 (function (a, b) {
     if (a < b) {
         for (let i = a; i <= b; i++) {
@@ -44,5 +46,4 @@ between_A_and_B(1, 10);
     } else {
         console.log('числа рівні');
     }
-
 }(10,1));
