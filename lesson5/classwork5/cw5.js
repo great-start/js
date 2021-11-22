@@ -106,10 +106,10 @@ console.log(AverageOfElements(numbers));
 
 
 // - створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);
-let ReturnMinShowMax = arr => {
+let ReturnMinShowMax = (...numbers) => {
     let min = 1e+1000;
     let max = -1e+1000;
-    for (const arrayElement of arr) {
+    for (const arrayElement of numbers) {
         if (min >= arrayElement) {
             min = arrayElement;
         }
@@ -120,12 +120,12 @@ let ReturnMinShowMax = arr => {
     console.log(max);
     return min;
 }
-ReturnMinShowMax([10, 12, 4, 5, 7, 9, 42, 21, 90, 100, 30, -50, -23, 0, 82, 1]);
+ReturnMinShowMax(10, 12, 4, 5, 7, 9, 42, 21, 90, 100, 30, -50, -23, 0, 82, 1);
 
-(function (arr) {
+(function (...numbers) {
     let min = 1e+1000;
     let max = -1e+1000;
-    for (const arrayElement of arr) {
+    for (const arrayElement of numbers) {
         if (min >= arrayElement) {
             min = arrayElement;
         }
@@ -135,7 +135,7 @@ ReturnMinShowMax([10, 12, 4, 5, 7, 9, 42, 21, 90, 100, 30, -50, -23, 0, 82, 1]);
     }
     console.log(max);
     return min;
-}([10, 12, 4, 5, 7, 15, 42, 21, 90, 100, 30, -50, -23, 0, 82, 1]));
+}(10, 12, 4, 5, 7, 15, 42, 21, 90, 100, 30, -50, -23, 0, 82, 1));
 
 
 // - створити функцію яка заповнює масив рандомними числами
