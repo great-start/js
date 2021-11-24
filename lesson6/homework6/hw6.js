@@ -65,17 +65,12 @@ console.log(firstSymbolToLowerCase(str7));
 let str8 = 'hello okten, one two three. Four five seven';
 let capitalize = str => {
     let words = str.split(' ');
-    let result_words = '';
+    let result_words = [];
     for (let word of words) {
-        if (words[words.length - 1] === word) {
-            word = word.replace(word[0], word[0].toUpperCase());
-            result_words = result_words.concat(word);
-        } else {
-            word = word.replace(word[0], word[0].toUpperCase());
-            result_words = result_words.concat(word + ' ');
-        }
+        let replace = word.replace(word[0], word.charAt(0).toUpperCase());
+        result_words.push(replace);
     }
-    return result_words;
+    return result_words.join(' ');
 };
 
 console.log(capitalize(str8));

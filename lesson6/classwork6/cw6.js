@@ -9,14 +9,13 @@ let n3 = 'Hermione__Granger';
 let normalize = str => {
     for (const item of str) {
         if (item === '_' || item === '.' || item === '-') {
-            str = str.replace(item + item + item, ' ');
-            str = str.replace(item + item, ' ');
-            str = str.replace(item, ' ');
+            str = str.replace(item + item + item, ' ').replace(item + item, ' ').replace(item, ' ');
         }
     }
     return str;
 }
-console.log(normalize(n1));
+console.log(normalize(n2));
+
 
 
 //     - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
@@ -51,15 +50,7 @@ console.log(generated3);
 // sortNums('descending') // [21,11,3]
 let genArr = random();
 let sortNums = direction => direction === 'ascending' ? genArr.sort((a, b) => a - b) : direction === 'descending' ? genArr.sort((a, b) => b - a) : false;
-// let sortNums = (direction) => {
-//     if (direction === 'ascending') {
-//         return generated4.sort((a, b) => a - b);
-//     } else if (direction === 'descending') {
-//         return generated4.sort((a, b) => b - a);
-//     } else {
-//         return 'false';
-//     }
-// }
+
 console.log(sortNums('descending'));
 
 
@@ -77,9 +68,11 @@ let sortArrByMonth = coursesAndDurationArray.sort((a, b) => b.monthDuration - a.
 console.log(sortArrByMonth);
 
 
+
 // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
 let sortArrMore5Month = coursesAndDurationArray.filter(obj => obj.monthDuration > 5);
 console.log(sortArrMore5Month);
+
 
 
 // - Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
