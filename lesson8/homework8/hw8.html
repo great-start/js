@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate deleniti
+    molestias mollitia pariatur porro saepe! Dolorem eaque earum eligendi, iste maxime molestias quam vitae.
+    Dolore hic in quae sed.
+</p>
+
+<div id="rules" class="fc bp">
+    Первое правило Бойцовского клуба: никому не рассказывать о Бойцовском клубе. Второе правило Бойцовского
+    клуба: никогда никому не рассказывать о Бойцовском клубе. Третье правило Бойцовского клуба: в схватке
+    участвуют только двое. Четвертое правило Бойцовского клуба: не более одного поединка за один раз
+</div>
+
+<ul>
+    <li class="fc_rules rule1">Первое правило Бойцовского клуба: никому не рассказывать о Бойцовском клубе.</li>
+    <li class="fc_rules rule2">Второе правило Бойцовского
+        клуба: никогда никому не рассказывать о Бойцовском клубе
+    </li>
+    <li class="fc_rules rule3">Третье правило Бойцовского клуба: в схватке
+        участвуют только двое.
+    </li>
+    <li class="fc_rules rule4">Четвертое правило Бойцовского клуба: не более одного поединка за один раз</li>
+</ul>
+
+
+<script>
+
+    // Візьміть файл template1.html, підключіть до нього скрипт, і працюйте в ньому!
+    //
+    // - Напишіть код,  який за допомоги document.getElementById або document.getElementsByClassName або document.getElementsByTagName :
+    // -- отримує текст з параграфа з id "content"
+    let content = document.getElementById('content').innerText;
+    console.log(content);
+
+
+    // -- отримує текст з блоку з id "rules"
+    let textFromRules = document.getElementById('rules').innerText;
+    console.log(textFromRules);
+
+
+    // -- замініть текст параграфа з id 'content' на будь-який інший
+    document.getElementById('content').innerText = 'Тег <select> позволяет создать элемент интерфейса в виде раскрывающегося списка, ' +
+        'а также список с одним или множественным выбором, как показано далее. Конечный вид зависит от использования атрибута size тега <select>, ' +
+        'который устанавливает высоту списка. Ширина списка определяется самым широким текстом, указанным в теге <option>, а также может изменяться ' +
+        'с помощью стилей. Каждый пункт создается с помощью тега <option>, который должен быть вложен в контейнер <select>. ' +
+        'Если планируется отправлять данные списка на сервер, то требуется поместить элемент <select> внутрь формы. Это также необходимо, ' +
+        'когда к данным списка идет обращение через скрипты.';
+
+
+    // -- замініть текст параграфа з id 'rules' на будь-який інший
+    document.getElementById('rules').innerText = 'Hello Guys';
+
+
+    // -- змініть кожному елементу колір фону на червоний
+    let children = document.body.children;
+    for (const child of children) {
+        child.style.background = 'red';
+    }
+
+
+    // -- змініть кожному елементу колір тексту на синій
+    for (const child of children) {
+        child.style.color = 'blue';
+    }
+
+
+    // -- отримати весь список класів елемента з id=rules і вивести їх в console.log
+    console.log(document.getElementById('rules').classList);
+
+
+    // -- поміняти колір тексту у всіх елементів fc_rules на червоний
+    let elementsByClassName = document.getElementsByClassName('fc_rules');
+    for (const elementsByClassNameElement of elementsByClassName) {
+        elementsByClassNameElement.style.color = 'red';
+    }
+
+</script>
+</body>
+</html>
