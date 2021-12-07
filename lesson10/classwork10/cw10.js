@@ -138,15 +138,3 @@ buttonCheckTwo.addEventListener('click',function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
