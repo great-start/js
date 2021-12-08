@@ -11,13 +11,14 @@ document.body.addEventListener('click', function (e) {
     info.height_width = `${e.target.clientHeight} * ${e.target.clientWidth}`;
     console.log(info);
 })
-//
-//
-//
-// //---------------------------------------------------------------------------------------------------------------------------------------------------
-// // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
-// //     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
-// //     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
+
+
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
+//     При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
+//     Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 //
 document.body.addEventListener('mousedown', function (e) {
     const divPopup = document.createElement('div');
@@ -260,11 +261,12 @@ left.onclick = () => {
 
 document.body.onmousedown = () => document.getSelection().removeAllRanges();
 
-document.body.onclick = function (e) {
-    let selObj = document.getSelection();
-    e.target.innerHTML = e.target.innerText.slice(0, selObj.anchorOffset) + '<span style="color: red">' + e.target.innerText.slice(selObj.anchorOffset, selObj.focusOffset) +
-        '</span>' + e.target.innerText.slice(selObj.focusOffset, e.target.innerText.length);
-
+document.body.onmouseup = function (e) {
+    if (window.getSelection) {
+        let selObj = document.getSelection();
+        e.target.innerHTML = e.target.innerText.slice(0, selObj.anchorOffset) + '<span style="color: red">' + e.target.innerText.slice(selObj.anchorOffset, selObj.focusOffset) +
+            '</span>' + e.target.innerText.slice(selObj.focusOffset, e.target.innerText.length);
+    }
 }
 
 
