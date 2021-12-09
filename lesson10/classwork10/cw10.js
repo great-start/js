@@ -93,7 +93,7 @@ document.write('<br><hr>');
 //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути алерт з попередженням.
 //     Перевірку робити при натисканні на кнопку
-let arr = ['сука', 'скотина', 'придурок', 'дибіл'];
+let arr = ['идиот', 'скотина', 'придурок', 'дибіл'];
 const divCheckWord = document.createElement('div');
 divCheckWord.style.marginBottom = '30px';
 const inputCurse = document.createElement('input');
@@ -112,13 +112,14 @@ buttonCheck.addEventListener('click', function () {
 document.write('<hr>');
 
 
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
 //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 //     Кинути алерт з попередженням у випадку якщо містить.
 //     Перевірку робити при натисканні на кнопку
-let arr2 = ['сука', 'скотина', 'придурок', 'дибіл'];
+let arr2 = ['идиот', 'скотина', 'придурок', 'дибіл'];
 const divCheckWordInSentence = document.createElement('div');
 const inputCheckTwo = document.createElement('input');
 const buttonCheckTwo = document.createElement('button');
@@ -131,7 +132,7 @@ buttonCheckTwo.addEventListener('click',function () {
     const words = inputCheckTwo.value.split(' ');
     for (const word of words) {
         for (const string of arr2) {
-            word === string ? alert('Чувак! Не пиши в реченні матюки!') : false;
+            word === string ? alert('Чувак! Не пиши в реченні погані слова!') : false;
         }
     }
 })

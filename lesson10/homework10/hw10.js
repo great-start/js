@@ -9,12 +9,15 @@ document.body.appendChild(buttonHiddenP);
 buttonHiddenP.onclick = () => paragraphElement.style.display = 'none';
 
 
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
 //     - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
 const buttonElement = document.createElement('button');
 buttonElement.innerText = 'Click on me';
 document.body.appendChild(buttonElement);
 buttonElement.onclick = () => buttonElement.style.visibility = 'hidden';
 document.write('<br><hr>');
+
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------
