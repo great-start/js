@@ -53,6 +53,10 @@ const f2 = document.forms.auto;
 
 f2.onsubmit = function(e)  {
     e.preventDefault();
+    const car = {model: this.model.value, type: this.type.value, volume: this.volume.value};
+    const cars = JSON.parse(localStorage.getItem('cars')) || [];
+    cars.push(car);
+    localStorage.setItem('cars', JSON.stringify(cars));
     // const model = this.model.value;
     // const type = this.type.value;
     // const volume = this.volume.value;
@@ -66,12 +70,6 @@ f2.onsubmit = function(e)  {
     //     cars.push(car);
     //     localStorage.setItem('cars', JSON.stringify(cars));
     // }
-
-    const car = {model: this.model.value, type: this.type.value, volume: this.volume.value};
-    const cars = JSON.parse(localStorage.getItem('cars')) || [];
-    cars.push(car);
-    localStorage.setItem('cars', JSON.stringify(cars));
-
 }
 
 
