@@ -62,16 +62,47 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                     for (const postKey in post) {
                                         if (postKey === 'title' || postKey === 'body') {
                                             const p = document.createElement('p');
-                                            p.innerHTML = `${postKey} - ${post[postKey]}`;
+                                            p.innerHTML = `<b>${postKey}</b> - ${post[postKey]}`;
                                             divPost.append(p);
                                         }
                                     }
+
+                                    const showComments = document.createElement('button');
+                                    showComments.classList.add('showComment');
+                                    showComments.innerText = 'Show comments';
+
+                                    let commentsBox = document.createElement('div');
+
+                                    showComments.onpointerdown = (e) => {
+                                        commentsBox.classList.add('commentsBox');
+                                        commentsBox.style.position = 'absolute';
+                                        commentsBox.style.top = e.clientY + 'px';
+                                        commentsBox.style.left = e.clientX + 'px';
+                                        fetch(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
+                                            .then(response => response.json())
+                                            .then(comments => {
+                                                for (const comment of comments) {
+                                                    const p = document.createElement('p');
+                                                    p.innerHTML = JSON.stringify(comment) + '<br><hr>';
+                                                    commentsBox.append(p);
+                                                }
+                                            })
+                                        document.body.append(commentsBox);
+                                    };
+
+                                    showComments.onpointerup = () => {
+                                        document.getElementsByClassName('commentsBox')[0].innerHTML = '';
+                                        document.getElementsByClassName('commentsBox')[0].remove();
+                                    }
+
+                                    divPost.append(showComments);
                                     postsWrapBox.append(divPost);
                                     userBox.append(postsWrapBox);
                                 })
                             });
                         showUserPosts.innerText = 'Hide User Posts';
                     } else {
+                        postsWrapBox.innerHTML = '';
                         postsWrapBox.remove();
                         showUserPosts.innerText = 'Show User Posts';
                     }
@@ -79,7 +110,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
                 userDescribeBox.append(showUserPosts);
                 userBox.append(userDescribeBox);
             }
-
             describeUser(user);
             usersWrapBox.append(userBox);
         });
