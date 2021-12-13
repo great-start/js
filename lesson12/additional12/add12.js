@@ -76,8 +76,8 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                     showComments.onpointerdown = (e) => {
                                         commentsBox.classList.add('commentsBox');
                                         commentsBox.style.position = 'absolute';
-                                        commentsBox.style.top = e.clientY + 'px';
-                                        commentsBox.style.left = e.clientX + 'px';
+                                        commentsBox.style.top = e.pageY + 'px';
+                                        commentsBox.style.left = e.pageX + 'px';
                                         fetch(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
                                             .then(response => response.json())
                                             .then(comments => {
