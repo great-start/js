@@ -6,37 +6,43 @@
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
     .then(posts => {
-            posts.forEach(post => {
-                const postContainer = document.createElement('div');
-                postContainer.classList.add('post');
-                for (const postKey in post) {
-                    const p = document.createElement('p');
-                    if (postKey === 'userId' || postKey === 'id' || postKey === 'title') {
-                        p.innerHTML = `<strong>${postKey}</strong>: ${post[postKey]}`;
-                        postContainer.append(p);
-                    } else {
-                        const wrapComment = document.createElement('div');
-                        wrapComment.classList.add('comment');
-                        const butShowComment = document.createElement('button');
-                        butShowComment.innerText = 'Show comments';
-                        butShowComment.setAttribute('id', 'comment');
-                        p.innerText = `${post[postKey]}`;
-                        p.classList.add('hidden');
+        posts.forEach(post => {
+            const postContainer = document.createElement('div');
+            postContainer.classList.add('post');
+            postContainer.innerHTML = `<h3>Post ${post.id}</h3>
+                                       <h4>Title: ${post.title}</h4>
+                                       <p><b>Body</b>: ${post.body}</p>`;
 
-                        butShowComment.onclick = () => {
-                            if (p.style.visibility === 'visible') {
-                                p.style.visibility = 'hidden';
-                                butShowComment.innerText = 'Show comments';
-                            } else {
-                                p.style.visibility = 'visible';
-                                butShowComment.innerText = 'Hide comments';
-                            }
+            const commentsBox = document.createElement('div');
+            const showComments = document.createElement('button');
+            showComments.innerText = 'Show Comments';
+            postContainer.append(showComments);
+            commentsBox.classList.add('commentsBox');
+
+            showComments.onclick = () => {
+                if (showComments.innerText === 'Show Comments') {
+            fetch('https://jsonplaceholder.typicode.com/comments?postId=' + post.id)
+                .then(response => response.json())
+                .then(comments => {
+                    comments.forEach(comment => {
+                            const commentBox = document.createElement('div');
+                            commentBox.classList.add('commentBox');
+                            commentBox.innerHTML = `<h3>Comment ${comment.id}</h3>
+                                                    <h4>email: ${comment.email}</h4>
+                                                    <h4>Name: ${comment.name}</h4>
+                                                    <p><b>Body:</b> ${comment.body}</p>`;
+                            commentsBox.append(commentBox);
                         }
+                    );
+                })
+                    postContainer.append(commentsBox);
+                    showComments.innerText = 'Hide Comments';
 
-                        wrapComment.append(butShowComment, p);
-                        postContainer.append(wrapComment);
-                    }
-                }
-                document.body.append(postContainer);
-            });
-        });
+                } else {
+                    commentsBox.innerHTML = '';
+                    commentsBox.remove();
+                    showComments.innerText = 'Show Comments';
+            }};
+            document.body.append(postContainer);
+        })
+    });
