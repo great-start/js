@@ -60,6 +60,11 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                     const divPost = document.createElement('div');
                                     divPost.classList.add('post');
                                     for (const postKey in post) {
+                                        if (postKey === 'id') {
+                                            const p = document.createElement('p');
+                                            p.innerHTML = `<h4>Пост № ${post.id}</h4>`;
+                                            divPost.append(p);
+                                        }
                                         if (postKey === 'title' || postKey === 'body') {
                                             const p = document.createElement('p');
                                             p.innerHTML = `<b>${postKey}</b> - ${post[postKey]}`;
@@ -83,7 +88,10 @@ fetch('https://jsonplaceholder.typicode.com/users')
                                             .then(comments => {
                                                 for (const comment of comments) {
                                                     const p = document.createElement('p');
-                                                    p.innerHTML = JSON.stringify(comment) + '<br><hr>';
+                                                    p.innerHTML = `<p><b>Comment</b> ${comment.id}</p>
+                                                                    <p><b>email:</b> ${comment.email}</p>
+                                                                    <p><b>Name:</b> ${comment.name}</p>
+                                                                    <p><b>Body:</b> ${comment.body}</p><hr>`;
                                                     commentsBox.append(p);
                                                 }
                                             })
