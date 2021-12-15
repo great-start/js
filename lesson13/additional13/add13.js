@@ -42,6 +42,10 @@ document.forms.addProd.onsubmit = function (e) {
     let prod = {id: products.length, name: this.product.value, amount: this.amount.value, price: this.price.value, url: this.url.value};
     products.push(prod);
     localStorage.setItem('products', JSON.stringify(products));
+    this.product.value = '';
+    this.amount.value = '';
+    this.price.value = '';
+    this.url.value = '';
 };
 
 let productsList = document.createElement('a');
