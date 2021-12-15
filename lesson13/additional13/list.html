@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>List Of Products</title>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        #deleteAll, #back {
+            margin: 20px;
+            font: 1.2em bold Samanata;
+        }
+        #deleteAll:hover, #back:hover {
+            background: lightsteelblue;
+        }
+        .productsWrap {
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            row-gap: 20px;
+        }
+        .productsWrap div {
+            box-sizing: content-box;
+            border: 1px solid grey;
+            border-radius: 10px;
+            box-shadow: 1px 1px 5px 5px grey;
+            padding: 10px;
+        }
+        .productsWrap div:hover {
+            box-shadow: unset;
+        }
+        .delProd {
+            display: block;
+        }
+        .delProd:hover {
+            background: lightblue;
+        }
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="deleteAll">Delete all products</button>
+<button id="back">Back</button>
+
+<script src="list.js"></script>
+</body>
+</html>
