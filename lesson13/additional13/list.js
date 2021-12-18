@@ -14,6 +14,7 @@ productsWrap.classList.add('productsWrap');
 let products = JSON.parse(localStorage.getItem('products'));
 
 if (products) {
+
     products.forEach((product, index) => {
         setTimeout(() => {                          // - добавил периодичность появления списка - для красоты
             let productBox = document.createElement('div');
@@ -34,7 +35,7 @@ if (products) {
             productsWrap.append(productBox);
             document.body.append(productsWrap);
             console.log(product);
-        }, index * 500);
+        }, index * 200);
     });
 } else {
     document.write('У списку немає жодного товару');
