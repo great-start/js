@@ -264,7 +264,7 @@ document.body.onmousedown = () => document.getSelection().removeAllRanges();
 document.body.onmouseup = function (e) {
     if (window.getSelection) {
         let selObj = document.getSelection();
-        e.target.innerHTML = e.target.innerText.slice(0, selObj.anchorOffset) + '<span style="color: red">' + e.target.innerText.slice(selObj.anchorOffset, selObj.focusOffset) +
+        e.target.innerHTML = e.target.innerText.slice(0, selObj.anchorOffset) + '<span style="color: #d31d1d">' + e.target.innerText.slice(selObj.anchorOffset, selObj.focusOffset) +
             '</span>' + e.target.innerText.slice(selObj.focusOffset, e.target.innerText.length);
     }
 }

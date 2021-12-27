@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>POst-details</title>
+    <style>
+        div, button {
+            box-sizing: border-box;
+        }
+        .postDiv {
+            margin: 20px auto;
+            width: 90%;
+            padding: 20px;
+            border: 1px solid grey;
+            border-radius: 10px;
+            box-shadow: #c0c5d0 0 0 10px 10px ;
+        }
+        h3 {
+            text-align: center;
+            margin: 50px auto 30px auto;
+            color: #1a5f81;
+            font-size: 1.5em;
+        }
+        hr {
+            margin: 20px auto;
+            width: 600px;
+            border-color: #348ab6;
+        }
+        .commentsBox {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 10px;
+        }
+        .commentsBox > div {
+            background: #e1e6ea;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    const postDiv = document.createElement('div');
+    postDiv.classList.add('postDiv');
+    let post = JSON.parse(localStorage.getItem('post'));
+    for (const postKey in post) {
+        let p = document.createElement('p');
+        p.innerHTML = `${postKey}: <b>${post[postKey]}</b>`;
+        postDiv.append(p);
+    }
+
+    setTimeout(() => {
+        const h3 = document.createElement('h3');
+        h3.innerText = 'Comments';
+
+        document.body.append(h3);
+        setTimeout(() => {
+            h3.innerHTML = 'Comments<hr>'
+        },500)
+
+    },1000);
+
+    let commentsBox = document.createElement('div');
+    commentsBox.classList.add('commentsBox');
+
+    setTimeout(() => {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
+            .then(response => response.json())
+            .then(comments => {
+
+                comments.forEach((comment, index) => {
+                    setTimeout(() => {
+                        let commentDiv = document.createElement('div');
+                        for (const commentKey in comment) {
+                            let p = document.createElement('p');
+                            p.innerHTML = `<b>${commentKey}:</b> ${comment[commentKey]}`;
+                            commentDiv.append(p);
+                        }
+                        commentsBox.append(commentDiv);
+                        document.body.append(commentsBox);
+                    }, 50 * index);
+
+                })
+            });
+    }, 2000);
+
+    document.body.append(postDiv);
+
+</script>
+</body>
+</html>

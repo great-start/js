@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>User-details</title>
+    <style>
+        div, button {
+            box-sizing: border-box;
+        }
+        #userDescription {
+            margin: 20px auto;
+            width: 90%;
+            padding: 20px;
+            border: 1px solid grey;
+            border-radius: 10px;
+            box-shadow: #c0c5d0 0 0 10px 10px ;
+        }
+        p {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+        button {
+            display: block;
+            width: 90%;
+            margin: 40px auto;
+            background: #c2ced7;
+            color:darkblue;
+            border: 1px solid lightslategrey;
+            border-radius: 5px;
+            height: 40px;
+            font: 1.4em bold;
+            transition: all 1s ease;
+        }
+        button:hover {
+            background: rgba(0,0,0,0);
+            color: #1a5f81;
+            box-shadow: inset 0 0 0 2px #3a7999;
+            cursor: pointer;
+        }
+        .postsBox {
+            margin: 20px auto;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .postsBox > div {
+            display: flex;
+            flex-direction: column;
+            width: 18%;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px;
+            padding: 10px;
+            background: #e4ecf3;
+            border-radius: 10px;
+        }
+        .postDetails {
+            margin: 0;
+            color: black;
+            background: #82afc7;
+            transition: all 500ms ease;
+            width: 120px;
+            height: 30px;
+            font-size: 1.2em;
+        }
+        .postDetails:hover {
+            background: rgba(0,0,0,0);
+            color: #556b7a;
+            box-shadow: inset 0 0 0 2px #3a7999;
+            cursor: pointer;
+        }
+        .postsBox p {
+            display: inline-block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    const userDescription = document.createElement('div');
+    userDescription.setAttribute('id', 'userDescription');
+    let oneUser = JSON.parse(localStorage.getItem('user'));
+
+    function description(item) {
+        for (const Key in item) {
+            if (typeof item[Key] === 'object') {
+                let pDiv = document.createElement('p');
+                pDiv.innerHTML = `<b>${Key}:</b> `;
+                userDescription.append(pDiv);
+                description(item[Key]);
+            } else {
+                let p = document.createElement('p');
+                p.innerHTML = `${Key}: <b>${item[Key]}</b>  `;
+                userDescription.append(p);
+            }
+        }
+    }
+
+    description(oneUser);
+    
+    let viewPosts = document.createElement('button');
+    viewPosts.setAttribute('id', 'viewPosts');
+    viewPosts.innerText = 'post of current user';
+
+    viewPosts.addEventListener('click', () => {
+        fetch(`https://jsonplaceholder.typicode.com/users/${oneUser.id}/posts`)
+            .then(response => response.json())
+            .then(posts => {
+                let postsBox = document.createElement('div');
+                postsBox.classList.add('postsBox');
+                posts.forEach((post, index) => {
+                    setTimeout(() => {
+                        const postDiv = document.createElement('div');
+                        let p = document.createElement('p');
+                        p.innerText = `${post.title}`;
+                        let postDetails = document.createElement('button');
+                        postDetails.classList.add('postDetails');
+                        postDetails.innerText = 'post details';
+
+                        postDetails.onclick = () => {
+                            document.location.href = 'post-details.html';
+                            localStorage.setItem('post', JSON.stringify(post));
+                        }
+
+                        postDiv.append(p, postDetails);
+                        postsBox.append(postDiv)
+                    }, index * 150);
+                })
+                document.body.append(postsBox);
+            });
+        document.getElementById('viewPosts').disabled = true;
+    });
+
+    document.body.append(userDescription, viewPosts);
+</script>
+</body>
+</html>
