@@ -109,6 +109,8 @@
     viewPosts.innerText = 'post of current user';
 
     viewPosts.addEventListener('click', () => {
+        // const userNum = window.location.search.slice(1);                         //  version 2
+        // fetch(`https://jsonplaceholder.typicode.com/users/${userNum}/posts`)     //  version 2
         fetch(`https://jsonplaceholder.typicode.com/users/${oneUser.id}/posts`)
             .then(response => response.json())
             .then(posts => {
@@ -138,6 +140,7 @@
     });
 
     document.body.append(userDescription, viewPosts);
+
 </script>
 </body>
 </html>
